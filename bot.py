@@ -125,11 +125,11 @@ async def get_grab_task(_, message: Message):
                                                                                                 f'Артикул: {id}')
                             db.add_old_post(messages.chat.id, messages.media_group_id)
                             #TODO добавить сообщение в базу
-                            await asyncio.sleep(random.randint(1, 2))
+                            await asyncio.sleep(random.randint(10, 60))
                         except FloodWait:
                             sys.exit(1)
 
-                    await asyncio.sleep(random.randint(1, 2))
+                    await asyncio.sleep(random.randint(10, 60))
 
 
 @bot.on_message(filters.media_group & filters.channel)
