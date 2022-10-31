@@ -1,0 +1,15 @@
+[Unit]
+Description=clothes_photo_bot
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/clothes_photo_bot/
+ExecStart=/home/clothes_photo_bot/env/bin/python3 bot.py
+RestartSec=1
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
