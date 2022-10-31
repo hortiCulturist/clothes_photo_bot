@@ -7,11 +7,12 @@ import datetime
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait
 from pyrogram.types import Message
-
-import config
 import db
-
 db.start_db()
+import config
+
+
+
 bot = Client("my_account",
              api_id=config.api_id,
              api_hash=config.api_hash)
@@ -111,7 +112,7 @@ async def get_grab_task(_, message: Message):
                     continue
                 if messages.media_group_id is None:
                     continue
-                if messages.date > config.date:
+                if messages.date > db.select_time():
                     print(messages.date)
                     # TODO проверить есть ли в базе
                     message_in_base = db.old_message_check(messages.chat.id, messages.media_group_id)
