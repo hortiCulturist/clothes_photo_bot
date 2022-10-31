@@ -123,7 +123,7 @@ async def get_grab_task(_, message: Message):
                         try:
                             await bot.copy_media_group(db.get_my_channel()[0][0],
                                                            messages.chat.id, messages.id, captions=f'{hashtag}\n'
-                                                                                                f'Артикул: {id}')
+                                                                                                f'Vendor code: {id}')
                             db.add_old_post(messages.chat.id, messages.media_group_id)
                             #TODO добавить сообщение в базу
                             await asyncio.sleep(random.randint(10, 61))
@@ -141,7 +141,7 @@ async def get_media_group(_, message: Message):
         if usrn[1] == message.chat.username:
             await bot.copy_media_group(db.get_my_channel()[0][0],
                                        message.chat.id, message.id, captions=f'{hashtag}\n'
-                                                                             f'Артикул: {id}')
+                                                                             f'Vendor code: {id}')
 
 
 @bot.on_message(filters.photo & filters.channel)
