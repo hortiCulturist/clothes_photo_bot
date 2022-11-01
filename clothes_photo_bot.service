@@ -11,5 +11,8 @@ ExecStart=/home/clothes_photo_bot/env/bin/python3 bot.py
 RestartSec=10
 Restart=on-failure
 
+StandardOutput=append:/home/clothes_photo_bot/log_output.log
+StandardError=append:/home/clothes_photo_bot/log_error.log
+
 [Install]
 WantedBy=multi-user.target
